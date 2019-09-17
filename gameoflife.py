@@ -15,7 +15,7 @@ WINW, WINH = dis.get_size()
 BOXW = 10
 BOXH = 10
 
-#assert WINW%BOXW == 0 and WINH%BOXH == 0
+assert WINW%BOXW == 0 and WINH%BOXH == 0
 
 BOARDW = WINW//BOXW
 BOARDH = WINH//BOXH
