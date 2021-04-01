@@ -118,7 +118,7 @@ while True:
             elif e.key == pygame.K_d:
                 drag = not drag
     if drag and down:
-        x, y = e.pos
+        x, y = pygame.mouse.get_pos()
         x, y = x//BOXW, y//BOXH
         board[y][x] = not board[y][x]
     if updating:
