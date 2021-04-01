@@ -15,3 +15,4 @@ by pressing the Return button the program will pause or resume.
 by pressing the right button you can update the board for one step.
 by pressing the 's' button you can save your work.
 by pressing the 'l' button you can load a saved work.
+by pressing the 'd' button you can enable 'Drag and Draw'.
