@@ -93,20 +93,19 @@ board = make_new_board(BOARDW, BOARDH)
 updating = False
 drag = False
 down = False
+dragval = False
 while True:
     for e in pygame.event.get():
         if e.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
         elif e.type == pygame.MOUSEBUTTONDOWN:
+            x, y = e.pos
+            x, y = x//BOXW, y//BOXH
             down = True
+            dragval = not board[y][x]
             if drag == False:
-                x, y = e.pos
-                x, y = x//BOXW, y//BOXH
-                if board[y][x]:
-                    board[y][x] = False
-                else:
-                    board[y][x] = True
+                board[y][x] = not board[y][x]
         elif e.type == pygame.MOUSEBUTTONUP:
             down = False
         elif e.type == pygame.KEYDOWN:
@@ -119,17 +118,11 @@ while True:
             elif e.key == pygame.K_l:
                 board = load(input())
             elif e.key == pygame.K_d:
-                if drag:
-                    drag = False
-                else:
-                    drag = True
+                drag = not drag
     if drag and down:
-        x, y = e.pos
+        x, y = pygame.mouse.get_pos()
         x, y = x//BOXW, y//BOXH
-        if board[y][x]:
-            board[y][x] = False
-        else:
-            board[y][x] = True
+        board[y][x] = dragval
     if updating:
         board = update(board)
 
